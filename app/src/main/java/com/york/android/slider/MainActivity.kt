@@ -1,5 +1,6 @@
 package com.york.android.slider
 
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -29,13 +30,21 @@ class MainActivity : AppCompatActivity() {
 
     fun initViewPager() {
         val layoutInflater = LayoutInflater.from(this)
-        val views = ArrayList<View>()
+        val views = ArrayList<View>()   // store page views
+        val drawables = ArrayList<Drawable>()
 
-        for(i in 0..2) {
-            val view = layoutInflater.inflate(R.layout.page, null)
+        // add background drawable
+        drawables.add(resources.getDrawable(R.drawable.businessman, null))
+        drawables.add(resources.getDrawable(R.drawable.meeting, null))
+        drawables.add(resources.getDrawable(R.drawable.statistics, null))
+
+        // add view
+        for (i in 0..2) {
+            val view = layoutInflater.inflate(R.layout.page, null)  // view added to LinearLayout
             val imageViewBackground = view.findViewById<ImageView>(R.id.imageView_page_background)
             val textViewTitle = view.findViewById<TextView>(R.id.textView_page_title)
 
+            imageViewBackground.setImageDrawable(drawables[i])
             textViewTitle.setText("Hello Page ${i}")
 
             views.add(view)
@@ -44,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         viewPager_main.adapter = ImagePageAdapter(views)
 
         // listen page change event
-        viewPager_main.addOnPageChangeListener(object: ViewPager.OnPageChangeListener {
+        viewPager_main.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
                 Log.d("OnPageChangeListener", "state: ${state}")
             }
@@ -55,14 +64,14 @@ class MainActivity : AppCompatActivity() {
                 val currentColor = textViews[position].currentTextColor
                 val whiteColor = resources.getColor(R.color.md_white_1000, null)
 
-                if(position > 0 && position < textViews.size - 1) {
+                if (position > 0 && position < textViews.size - 1) {
                     textViews[position - 1].setTextColor(currentColor)
                     textViews[position + 1].setTextColor(currentColor)
                     textViews[position].setTextColor(whiteColor)
                 } else if (position == textViews.size - 1) {
                     textViews[position - 1].setTextColor(currentColor)
                     textViews[position].setTextColor(whiteColor)
-                } else{
+                } else {
                     textViews[position].setTextColor(whiteColor)
                     textViews[position + 1].setTextColor(currentColor)
                 }
@@ -77,7 +86,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun addTextView() {
-        for(i in 0..2) {
+        for (i in 0..2) {
             val childTextView = TextView(this)
             childTextView.setText("\u25CF")
             childTextView.textSize = 18f
@@ -88,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         textViews[0].setTextColor(resources.getColor(R.color.md_white_1000, null))
     }
 
-    class ImagePageAdapter(val pages: List<View>): PagerAdapter() {
+    class ImagePageAdapter(val pages: List<View>) : PagerAdapter() {
         override fun isViewFromObject(view: View?, `object`: Any?): Boolean {
             return view == `object`
         }
