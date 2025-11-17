@@ -46,7 +46,7 @@ private enum class Slot {
 }
 
 /**
- * EatigoSlider is a slider component that allows users to select a range of values.
+ * RangeSlider is a slider component that allows users to select a range of values.
  * Consists of three parts: label, track, and thumbs.
  *
  * @param modifier Modifier to be applied to the layout.
@@ -63,7 +63,7 @@ private enum class Slot {
  */
 @Preview(showBackground = true)
 @Composable
-fun EatigoRangeSlider(
+fun RangeSlider(
     modifier: Modifier = DEFAULT_SLIDER_MODIFIER,
     label: List<String> = listOf("$", "$$", "$$$", "$$$$", "$$$$$"),
     labelOffsetX: Dp = 20.dp,
