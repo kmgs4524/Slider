@@ -1,4 +1,4 @@
-# Slider Compose Component
+# RangeSlider
 
 A customizable range slider component for Jetpack Compose that allows users to select a range of values with dual thumbs.
 
@@ -12,11 +12,8 @@ A customizable range slider component for Jetpack Compose that allows users to s
 - **Gesture Support**: Smooth swipeable and draggable thumb interactions
 - **Compose-first**: Built entirely with Jetpack Compose
 
-## Requirements
-
-- Minimum SDK: 24
-- Target SDK: 35
-- Jetpack Compose
+## Demo
+https://github.com/user-attachments/assets/3aad3c05-a9ae-49c6-9057-4a84169e0227
 
 ## Installation
 
@@ -33,7 +30,7 @@ dependencies {
 ### Basic Example
 
 ```kotlin
-EatigoRangeSlider(
+RangeSlider(
     label = listOf("$", "$$", "$$$", "$$$$", "$$$$$"),
     steps = 5,
     thumbStepMap = mapOf(
@@ -50,7 +47,7 @@ EatigoRangeSlider(
 ### Advanced Customization
 
 ```kotlin
-EatigoRangeSlider(
+RangeSlider(
     modifier = Modifier
         .height(96.dp)
         .background(Color.White)
@@ -95,7 +92,7 @@ EatigoRangeSlider(
 
 ## API Reference
 
-### EatigoRangeSlider Parameters
+### RangeSlider Parameters
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -156,7 +153,7 @@ thumbs = { modifierMap ->
 ### Price Range Example
 
 ```kotlin
-EatigoRangeSlider(
+RangeSlider(
     label = listOf("Free", "$10", "$20", "$30", "$40+"),
     steps = 5,
     onRangeChanged = { range ->

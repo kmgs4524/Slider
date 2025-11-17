@@ -67,6 +67,7 @@ fun RangeSlider(
     modifier: Modifier = DEFAULT_SLIDER_MODIFIER,
     label: List<String> = listOf("$", "$$", "$$$", "$$$$", "$$$$$"),
     labelOffsetX: Dp = 20.dp,
+    labelColor: Color = Color.Black,
     trackModifier: Modifier = Modifier,
     // Track
     activeTrackColor: Color = Colors.red50,
@@ -128,7 +129,7 @@ fun RangeSlider(
 
         val labelPlaceable = subcompose(Slot.LABEL) {
             label.forEach {
-                Text(text = it)
+                Text(text = it, color = labelColor)
             }
         }.map {
             it.measure(

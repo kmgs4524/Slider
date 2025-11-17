@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.york.slider"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.york.slider"
@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(libs.core.ktx)
+    implementation(project(":slider"))
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
