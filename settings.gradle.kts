@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Slider"
 include(":app")
- 
+include(":slider")
